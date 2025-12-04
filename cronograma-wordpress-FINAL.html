@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Estudos - Enfermeiro Aprovado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================
+           RESET E VARIÁVEIS CSS
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :root {
+            /* Cores */
+            --azul-escuro: #0a1f44;
+            --azul-medio: #1e3a8a;
+            --azul-claro: #3b82f6;
+            --dourado: #d4af37;
+            --dourado-escuro: #b8860b;
+            --marrom-dourado: #8b4513;
+            --marrom-claro: #a0522d;
+            --branco: #ffffff;
+            --cinza-claro: #f8fafc;
+            --cinza-medio: #e2e8f0;
+            --cinza-escuro: #4a5568;
+            --verde: #10b981;
+            --vermelho: #ef4444;
+
+            /* Sombras */
+            --sombra: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --sombra-forte: 0 4px 20px rgba(0, 0, 0, 0.12);
+
+            /* Transições */
+            --transicao: all 0.3s ease;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--cinza-claro);
+            color: var(--azul-escuro);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transicao);
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: 'Roboto', sans-serif;
+            transition: var(--transicao);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* ==========================================
+           HEADER
+           ========================================== */
+        .header {
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
+            color: var(--branco);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--sombra-forte);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--dourado);
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            color: var(--branco);
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            color: var(--dourado);
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            width: 100%;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 0.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dourado);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--dourado);
+            opacity: 0.9;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* ==========================================
+           MAIN CONTENT
+           ========================================== */
+        .main-content {
+            padding: 1.5rem 0;
+            display: block;
+        }
+
+        .card {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--azul-escuro);
+            font-size: 1.25rem;
+        }
+
+        .section-title i {
+            color: var(--dourado);
+        }
+
+        /* ==========================================
+           WEEK SELECTOR
+           ========================================== */
+        .week-selector-container {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Controles de navegação mobile */
+        .week-nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .week-nav-btn {
+            padding: 0.75rem 1rem;
+            background: var(--azul-medio);
+            color: var(--branco);
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 0 0 auto;
+        }
+
+        .week-nav-btn:hover:not(:disabled) {
+            background: var(--azul-escuro);
+            transform: translateY(-2px);
+        }
+
+        .week-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .current-week-display {
+            text-align: center;
+            background: var(--cinza-claro);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            border: 2px solid var(--cinza-medio);
+            flex: 1;
+            min-width: 120px;
+        }
+
+        /* Scroll horizontal de semanas */
+        .week-selector {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--dourado) var(--cinza-medio);
+        }
+
+        .week-selector::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .week-selector::-webkit-scrollbar-track {
+            background: var(--cinza-medio);
+            border-radius: 3px;
+        }
+
+        .week-selector::-webkit-scrollbar-thumb {
+            background: var(--dourado);
+            border-radius: 3px;
+        }
+
+        /* Botões de semana */
+        .week-btn {
+            padding: 0.5rem 0.4rem;
+            background: var(--cinza-medio);
+            border-radius: 6px;
+            transition: var(--transicao);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+            min-width: 85px;
+            max-width: 90px;
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+
+        .week-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--sombra);
+        }
+
+        .week-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .week-number {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            line-height: 1.1;
+        }
+
+        .week-type {
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+            opacity: 0.8;
+            line-height: 1;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        .week-btn.active {
+            background: var(--azul-medio);
+            border-color: var(--azul-medio);
+            box-shadow: 0 2px 5px rgba(30, 58, 138, 0.3);
+        }
+
+        .week-btn.active .week-number,
+        .week-btn.active .week-type {
+            color: var(--branco);
+            opacity: 1;
+        }
+
+        .week-btn.active:hover {
+            background: var(--azul-escuro);
+        }
+
+        .week-btn.revision {
+            background: var(--marrom-dourado);
+            border-color: var(--marrom-dourado);
+        }
+
+        .week-btn.revision .week-number,
+        .week-btn.revision .week-type {
+            color: var(--branco);
+            opacity: 1;
+        }
+
+        .week-btn.revision:hover {
+            background: var(--marrom-claro);
+        }
+
+        /* ==========================================
+           DAYS CONTAINER
+           ========================================== */
+        .days-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .day-card {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: var(--sombra);
+            border-left: 4px solid var(--azul-medio);
+            transition: var(--transicao);
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .day-card.revision {
+            border-left-color: var(--marrom-dourado);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .day-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--azul-escuro);
+        }
+
+        .day-number {
+            background: var(--azul-medio);
+            color: var(--branco);
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================
+           DISCIPLINE ITEM
+           ========================================== */
+        .discipline-item {
+            background: var(--cinza-claro);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--cinza-medio);
+            transition: var(--transicao);
+        }
+
+        .discipline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .discipline-item:hover {
+            border-color: var(--azul-claro);
+        }
+
+        .discipline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            gap: 0.5rem;
+        }
+
+        .discipline-name {
+            font-weight: 600;
+            color: var(--azul-escuro);
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        .tempo-estudado {
+            font-size: 0.75rem;
+            color: var(--cinza-escuro);
+            background: var(--branco);
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .discipline-topic {
+            color: var(--cinza-escuro);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .discipline-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .link-btn {
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-weight: 500;
+        }
+
+        .link-btn.teoria {
+            background: var(--azul-medio);
+            color: var(--branco);
+        }
+
+        .link-btn.teoria:hover {
+            background: var(--azul-escuro);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra);
+        }
+
+        .link-btn.exercicios {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+        }
+
+        .link-btn.exercicios:hover {
+            background: var(--dourado-escuro);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra);
+        }
+
+        .checklist {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .check-item:hover {
+            color: var(--azul-medio);
+        }
+
+        .check-input {
+            width: 1.125rem;
+            height: 1.125rem;
+            accent-color: var(--azul-medio);
+            cursor: pointer;
+        }
+
+        /* ==========================================
+           SIDEBAR
+           ========================================== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Pomodoro Timer */
+        .timer {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--azul-escuro);
+            text-align: center;
+            margin: 1rem 0;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .timer-mode {
+            text-align: center;
+            color: var(--cinza-escuro);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timer-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .timer-btn {
+            padding: 0.75rem 0.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .timer-btn.start {
+            background: var(--verde);
+            color: var(--branco);
+        }
+
+        .timer-btn.start:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .timer-btn.pause {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+        }
+
+        .timer-btn.pause:hover {
+            background: var(--dourado-escuro);
+            transform: scale(1.05);
+        }
+
+        .timer-btn.reset {
+            background: var(--cinza-escuro);
+            color: var(--branco);
+        }
+
+        .timer-btn.reset:hover {
+            background: #2d3748;
+            transform: scale(1.05);
+        }
+
+        .timer-settings {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .setting-item {
+            text-align: center;
+        }
+
+        .setting-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--azul-medio);
+            display: block;
+        }
+
+        .setting-label {
+            font-size: 0.75rem;
+            color: var(--cinza-escuro);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Progress Card */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: var(--cinza-medio);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--azul-medio), var(--azul-claro));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .progress-stat {
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--cinza-claro);
+            border-radius: 8px;
+        }
+
+        .progress-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--azul-medio);
+            display: block;
+        }
+
+        .progress-stat-label {
+            font-size: 0.75rem;
+            color: var(--cinza-escuro);
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* Analysis Card */
+        .analysis-message {
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            background: var(--cinza-claro);
+            border-left: 4px solid var(--azul-medio);
+        }
+
+        .analysis-message i {
+            color: var(--azul-medio);
+            font-size: 1.25rem;
+        }
+
+        .analysis-message.good {
+            background: #d1fae5;
+            border-left-color: var(--verde);
+        }
+
+        .analysis-message.good i {
+            color: var(--verde);
+        }
+
+        .analysis-tips h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--azul-escuro);
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .tip-icon {
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tip-text {
+            flex: 1;
+            font-size: 0.875rem;
+            color: var(--cinza-escuro);
+            line-height: 1.5;
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        .footer {
+            background: var(--azul-escuro);
+            color: var(--branco);
+            padding: 2rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dourado);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .footer-logo i {
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: var(--branco);
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--dourado);
+        }
+
+        .copyright {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        /* ==========================================
+           NOTIFICATION
+           ========================================== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--azul-medio);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--sombra-forte);
+            z-index: 9999;
+            animation: slideIn 0.3s ease;
+            max-width: 90%;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .notification i {
+            font-size: 1.25rem;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* ==========================================
+           SCROLLBAR PERSONALIZADA
+           ========================================== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cinza-medio);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--azul-medio);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--azul-escuro);
+        }
+
+        /* ==========================================
+           TABLET (768px - 1023px)
+           ========================================== */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+                padding: 0 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .stats {
+                width: auto;
+                grid-template-columns: repeat(3, auto);
+                gap: 1.5rem;
+            }
+
+            .stat-item {
+                padding: 0.75rem 1rem;
+                min-width: 100px;
+            }
+
+            .stat-value {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .week-nav-controls {
+                display: none;
+            }
+
+            .week-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+
+            .week-btn {
+                min-width: 100px;
+                max-width: 110px;
+                height: 60px;
+            }
+
+            .week-number {
+                font-size: 1rem;
+            }
+
+            .week-type {
+                font-size: 0.7rem;
+            }
+
+            .main-content {
+                padding: 2rem 0;
+            }
+
+            .days-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .sidebar {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .pomodoro-card {
+                grid-column: 1 / -1;
+            }
+
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+
+            .footer-links {
+                justify-content: flex-end;
+            }
+        }
+
+        /* ==========================================
+           DESKTOP (1024px+)
+           ========================================== */
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 960px;
+                padding: 0 2rem;
+            }
+
+            .header {
+                padding: 1.25rem 0;
+            }
+
+            .logo-text h1 {
+                font-size: 1.75rem;
+            }
+
+            .logo-text p {
+                font-size: 1rem;
+            }
+
+            .stats {
+                gap: 2rem;
+            }
+
+            .stat-item {
+                padding: 1rem 1.5rem;
+                min-width: 110px;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .week-selector {
+                gap: 1rem;
+            }
+
+            .week-btn {
+                min-width: 110px;
+                max-width: 120px;
+                height: 65px;
+            }
+
+            .main-content {
+                padding: 2.5rem 0;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 2.5rem;
+                align-items: start;
+            }
+
+            .days-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .sidebar {
+                display: flex;
+                flex-direction: column;
+                position: sticky;
+                top: 120px;
+                gap: 2rem;
+            }
+
+            .timer {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* ==========================================
+           DESKTOP GRANDE (1440px+)
+           ========================================== */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1200px;
+            }
+
+            .header {
+                padding: 1.5rem 0;
+            }
+
+            .logo-text h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 2.5rem;
+            }
+
+            .stat-item {
+                padding: 1.25rem 2rem;
+                min-width: 120px;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.875rem;
+            }
+
+            .week-btn {
+                min-width: 120px;
+                max-width: 140px;
+            }
+
+            .main-content {
+                padding: 3rem 0;
+                grid-template-columns: 3fr 1fr;
+                gap: 3rem;
+            }
+
+            .days-container {
+                gap: 2rem;
+            }
+
+            .sidebar {
+                gap: 2.5rem;
+                top: 140px;
+            }
+        }
+
+        /* ==========================================
+           MOBILE MUITO PEQUENO (< 480px)
+           ========================================== */
+        @media (max-width: 479px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+
+            .stats {
+                gap: 0.5rem;
+            }
+
+            .stat-item {
+                padding: 0.5rem 0.25rem;
+            }
+
+            .stat-value {
+                font-size: 1rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .week-selector {
+                display: none;
+            }
+
+            .week-nav-btn {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .current-week-display {
+                padding: 0.6rem 0.75rem;
+                min-width: 100px;
+                font-size: 0.9rem;
+            }
+
+            .timer {
+                font-size: 2.5rem;
+            }
+
+            .timer-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==========================================
+           MOBILE NORMAL (480px - 767px)
+           ========================================== */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .week-selector {
+                display: flex;
+            }
+        }
+    </style>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>ENFERMEIRO APROVADO</h1>
+                        <p>Cronograma de Estudos EA</p>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-studied">0h 00m</span>
+                        <span class="stat-label">Tempo Estudado</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="total-completed">0</span>
+                        <span class="stat-label">Conteúdos Concluídos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="current-week">1</span>
+                        <span class="stat-label">Semana Atual</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <div class="main-content">
+            <!-- CRONOGRAMA -->
+            <section class="cronograma-section">
+                <div class="card">
+                    <h2 class="section-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        Cronograma de Estudos
+                    </h2>
+
+                    <!-- WEEK NAVIGATION CONTROLS (MOBILE) -->
+                    <div class="week-nav-controls">
+                        <button class="week-nav-btn" id="prevWeekBtn" title="Semana anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="current-week-display" id="currentWeekDisplay">
+                            Semana 1
+                        </div>
+                        <button class="week-nav-btn" id="nextWeekBtn" title="Próxima semana">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- WEEK SELECTOR -->
+                    <div class="week-selector-container">
+                        <div class="week-selector" id="weekSelector">
+                            <!-- JavaScript vai gerar aqui -->
+                        </div>
+                    </div>
+
+                    <!-- DAYS -->
+                    <div class="days-container" id="daysContainer">
+                        <!-- JavaScript vai gerar aqui -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <!-- POMODORO -->
+                <div class="card pomodoro-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-clock"></i>
+                        Técnica Pomodoro
+                    </h3>
+                    <div class="pomodoro-display">
+                        <div class="timer-mode" id="timerMode">Tempo de Estudo</div>
+                        <div class="timer" id="timer">25:00</div>
+                        <div class="timer-actions">
+                            <button class="timer-btn start" id="startTimer">
+                                <i class="fas fa-play"></i>
+                                <span>Iniciar</span>
+                            </button>
+                            <button class="timer-btn pause" id="pauseTimer">
+                                <i class="fas fa-pause"></i>
+                                <span>Pausar</span>
+                            </button>
+                            <button class="timer-btn reset" id="resetTimer">
+                                <i class="fas fa-redo"></i>
+                                <span>Reiniciar</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="timer-settings">
+                        <div class="setting-item">
+                            <span class="setting-value" id="studyTime">25</span>
+                            <span class="setting-label">Estudo (min)</span>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-value" id="breakTime">5</span>
+                            <span class="setting-label">Pausa (min)</span>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-value" id="pomodoroCount">0</span>
+                            <span class="setting-label">Pomodoros</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROGRESS -->
+                <div class="card progress-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        Seu Progresso
+                    </h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="progress-stat">
+                            <span class="progress-stat-value" id="progressPercent">0%</span>
+                            <span class="progress-stat-label">Concluído</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="progress-stat-value" id="remainingWeeks">24</span>
+                            <span class="progress-stat-label">Semanas Restantes</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="progress-stat-value" id="todayTime">0m</span>
+                            <span class="progress-stat-label">Hoje</span>
+                        </div>
+                        <div class="progress-stat">
+                            <span class="progress-stat-value" id="streak">0</span>
+                            <span class="progress-stat-label">Dias Seguidos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANALYSIS -->
+                <div class="card analysis-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-bar"></i>
+                        Análise do seu Estudo
+                    </h3>
+                    <div class="analysis-message info" id="analysisMessage">
+                        <i class="fas fa-info-circle"></i>
+                        <div>Comece seus estudos para receber análises personalizadas!</div>
+                    </div>
+                    <div class="analysis-tips">
+                        <h4>Dicas para hoje:</h4>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-text">Estude em blocos de 30-60 minutos com pausas de 5-10 minutos</div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-text">Crie um ativo de aprendizagem (resumo, mapa mental ou flashcards)</div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="tip-text">Revise imediatamente, em 24h, semanalmente e mensalmente</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-user-nurse"></i>
+                    <span>enfermeiroaprovado.com.br</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Política de Privacidade</a>
+                    <a href="#" class="footer-link">Termos de Uso</a>
+                    <a href="#" class="footer-link">Contato</a>
+                </div>
+                <div class="copyright">
+                    © 2025 Enfermeiro Aprovado. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// ==========================================
+// DADOS COMPLETOS - 24 SEMANAS
+// COLE AQUI OS DADOS QUE VOCÊ FORNECEU
+// Formato: const cronogramaDataDefault = { semanas: [ ... ] };
+// ==========================================
+
+// IMPORTANTE: Os dados abaixo são um TEMPLATE
+// Você deve substituir pelo JavaScript completo que você me forneceu no início
+// com todas as 24 semanas
+
+const cronogramaDataDefault = {
+    semanas: [
+        // SEMANA 1
+        {
+            id: 1,
+            nome: "SEMANA 1",
+            dias: [
+                { dia: 1, disciplina: "PORTUGUÊS", tema: "COMPREENSÃO E INTERPRETAÇÃO DE TEXTOS", teoria: "https://www.youtube.com/watch?v=9C2EZxWzKjo", exercicios: "https://questoes.grancursosonline.com.br/questoes-de-concursos/lingua-portuguesa-interpretacao-de-texto-403701", concluido: false, tempoEstudado: 0 },
+                { dia: 1, disciplina: "ESPECÍFICA 1", tema: "FUNDAMENTOS DE ENFERMAGEM - SINAIS VITAIS", teoria: "https://drive.google.com/file/d/1CC3mUmYa1kRv9oOZ4cI8FOwTSQheoA6Q/view?usp=sharing", exercicios: "https://www.qconcursos.com/questoes-de-concursos/questoes?discipline_ids%5B%5D=172", concluido: false, tempoEstudado: 0 }
+                // ... Adicione TODOS os dias da semana 1 aqui
+            ]
+        }
+        // ... Adicione as outras 23 semanas aqui
+    ]
+};
+
+// ==========================================
+// CLASSE GERENCIADORA DO CRONOGRAMA
+// ==========================================
+class CronogramaManager {
+    constructor() {
+        this.data = this.loadData();
+        this.semanaAtual = this.loadSemanaAtual();
+        this.init();
+    }
+
+    loadData() {
+        const saved = localStorage.getItem('cronogramaData');
+        return saved ? JSON.parse(saved) : cronogramaDataDefault;
+    }
+
+    saveData() {
+        localStorage.setItem('cronogramaData', JSON.stringify(this.data));
+        localStorage.setItem('semanaAtual', this.semanaAtual);
+    }
+
+    loadSemanaAtual() {
+        const saved = localStorage.getItem('semanaAtual');
+        return saved !== null ? parseInt(saved) : 0;
+    }
+
+    init() {
+        this.initEventListeners();
+        this.renderWeekSelector();
+        this.renderDays(this.semanaAtual);
+        this.updateHeaderStats();
+        this.updateProgress();
+        this.setupResponsiveFeatures();
+    }
+
+    renderWeekSelector() {
+        const weekSelector = document.getElementById('weekSelector');
+        if (!weekSelector) return;
+        weekSelector.innerHTML = '';
+
+        this.data.semanas.forEach((semana, index) => {
+            const weekBtn = document.createElement('button');
+            weekBtn.className = `week-btn ${semana.revisao ? 'revision' : ''} ${index === this.semanaAtual ? 'active' : ''}`;
+            weekBtn.innerHTML = `
+                <div class="week-content">
+                    <div class="week-number">${index + 1}</div>
+                    <div class="week-type">${semana.revisao ? 'Revisão' : 'Semana'}</div>
+                </div>
+            `;
+            weekBtn.addEventListener('click', () => this.changeWeek(index));
+            weekSelector.appendChild(weekBtn);
+        });
+
+        this.updateWeekNavigation();
+    }
+
+    changeWeek(index) {
+        if (index >= 0 && index < this.data.semanas.length) {
+            this.semanaAtual = index;
+            this.saveData();
+            this.renderWeekSelector();
+            this.renderDays(index);
+            this.updateHeaderStats();
+            this.updateWeekNavigation();
+
+            const activeBtn = document.querySelector('.week-btn.active');
+            if (activeBtn && window.innerWidth >= 480 && window.innerWidth < 768) {
+                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        }
+    }
+
+    updateWeekNavigation() {
+        const prevBtn = document.getElementById('prevWeekBtn');
+        const nextBtn = document.getElementById('nextWeekBtn');
+        const currentWeekDisplay = document.getElementById('currentWeekDisplay');
+
+        if (prevBtn && nextBtn && currentWeekDisplay) {
+            prevBtn.disabled = this.semanaAtual === 0;
+            nextBtn.disabled = this.semanaAtual === this.data.semanas.length - 1;
+            currentWeekDisplay.textContent = `Semana ${this.semanaAtual + 1}`;
+        }
+    }
+
+    renderDays(semanaIndex) {
+        const daysContainer = document.getElementById('daysContainer');
+        if (!daysContainer) return;
+        
+        const semana = this.data.semanas[semanaIndex];
+        if (!semana) return;
+
+        const diasAgrupados = {};
+        semana.dias.forEach(conteudo => {
+            if (!diasAgrupados[conteudo.dia]) {
+                diasAgrupados[conteudo.dia] = [];
+            }
+            diasAgrupados[conteudo.dia].push(conteudo);
+        });
+
+        daysContainer.innerHTML = '';
+
+        Object.keys(diasAgrupados).sort((a, b) => a - b).forEach(diaNum => {
+            const diaConteudos = diasAgrupados[diaNum];
+            const diaCard = document.createElement('div');
+            diaCard.className = `day-card ${semana.revisao ? 'revision' : ''} fade-in`;
+
+            let diaHTML = `
+                <div class="day-header">
+                    <div class="day-title">Dia ${diaNum}</div>
+                    <div class="day-number">${diaNum}</div>
+                </div>
+                <div class="disciplines-list">
+            `;
+
+            diaConteudos.forEach((conteudo) => {
+                const horas = Math.floor(conteudo.tempoEstudado / 60);
+                const minutos = conteudo.tempoEstudado % 60;
+                const tempoFormatado = conteudo.tempoEstudado > 0 ? `${horas}h ${String(minutos).padStart(2, '0')}m` : '';
+
+                diaHTML += `
+                    <div class="discipline-item">
+                        <div class="discipline-header">
+                            <div class="discipline-name">${this.escapeHtml(conteudo.disciplina)}</div>
+                            ${tempoFormatado ? `<div class="tempo-estudado">${tempoFormatado}</div>` : ''}
+                        </div>
+                        <div class="discipline-topic">${this.escapeHtml(conteudo.tema)}</div>
+                        <div class="discipline-links">
+                `;
+
+                if (conteudo.teoria && this.isValidUrl(conteudo.teoria)) {
+                    diaHTML += `<a href="${conteudo.teoria}" target="_blank" rel="noopener noreferrer" class="link-btn teoria">
+                        <i class="fas fa-book"></i> Teoria
+                    </a>`;
+                }
+
+                if (conteudo.exercicios && this.isValidUrl(conteudo.exercicios)) {
+                    diaHTML += `<a href="${conteudo.exercicios}" target="_blank" rel="noopener noreferrer" class="link-btn exercicios">
+                        <i class="fas fa-pen"></i> Exercícios
+                    </a>`;
+                }
+
+                diaHTML += `
+                        </div>
+                        <div class="checklist">
+                            <label class="check-item">
+                                <input type="checkbox" class="check-input"
+                                    ${conteudo.concluido ? 'checked' : ''}
+                                    data-semana="${semanaIndex}"
+                                    data-dia="${diaNum}"
+                                    data-disciplina="${this.escapeHtml(conteudo.disciplina)}">
+                                <span>Conteúdo concluído</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            });
+
+            diaHTML += '</div>';
+            diaCard.innerHTML = diaHTML;
+            daysContainer.appendChild(diaCard);
+        });
+
+        document.querySelectorAll('.check-input').forEach(checkbox => {
+            checkbox.addEventListener('change', (e) => {
+                const semana = parseInt(e.target.dataset.semana);
+                const dia = parseInt(e.target.dataset.dia);
+                const disciplina = e.target.dataset.disciplina;
+                this.toggleConcluido(semana, dia, disciplina);
+            });
+        });
+
+        const currentWeekEl = document.getElementById('current-week');
+        if (currentWeekEl) {
+            currentWeekEl.textContent = this.semanaAtual + 1;
+        }
+    }
+
+    toggleConcluido(semanaIndex, dia, disciplina) {
+        const semana = this.data.semanas[semanaIndex];
+        const conteudo = semana.dias.find(c => c.dia === dia && c.disciplina === disciplina);
+
+        if (conteudo) {
+            conteudo.concluido = !conteudo.concluido;
+            this.saveData();
+            this.updateProgress();
+            this.updateHeaderStats();
+
+            this.showNotification(
+                conteudo.concluido ?
+                    'Conteúdo marcado como concluído! 🎉' :
+                    'Conteúdo desmarcado.'
+            );
+        }
+    }
+
+    updateHeaderStats() {
+        let totalTempoEstudado = 0;
+        let totalConteudosConcluidos = 0;
+
+        this.data.semanas.forEach(semana => {
+            semana.dias.forEach(dia => {
+                totalTempoEstudado += dia.tempoEstudado || 0;
+                if (dia.concluido) totalConteudosConcluidos++;
+            });
+        });
+
+        const horasTotal = Math.floor(totalTempoEstudado / 60);
+        const minutosTotal = totalTempoEstudado % 60;
+
+        const totalStudiedEl = document.getElementById('total-studied');
+        const totalCompletedEl = document.getElementById('total-completed');
+        const currentWeekEl = document.getElementById('current-week');
+
+        if (totalStudiedEl) totalStudiedEl.textContent = `${horasTotal}h ${String(minutosTotal).padStart(2, '0')}m`;
+        if (totalCompletedEl) totalCompletedEl.textContent = totalConteudosConcluidos;
+        if (currentWeekEl) currentWeekEl.textContent = this.semanaAtual + 1;
+    }
+
+    updateProgress() {
+        let totalConteudos = 0;
+        let conteudosConcluidos = 0;
+
+        this.data.semanas.forEach(semana => {
+            semana.dias.forEach(dia => {
+                totalConteudos++;
+                if (dia.concluido) conteudosConcluidos++;
+            });
+        });
+
+        const progressPercent = totalConteudos > 0 ? Math.round((conteudosConcluidos / totalConteudos) * 100) : 0;
+        const remainingWeeks = this.data.semanas.length - this.semanaAtual;
+
+        const progressPercentEl = document.getElementById('progressPercent');
+        const remainingWeeksEl = document.getElementById('remainingWeeks');
+        const progressFillEl = document.getElementById('progressFill');
+
+        if (progressPercentEl) progressPercentEl.textContent = `${progressPercent}%`;
+        if (remainingWeeksEl) remainingWeeksEl.textContent = remainingWeeks;
+        if (progressFillEl) progressFillEl.style.width = `${progressPercent}%`;
+
+        const todayTimeEl = document.getElementById('todayTime');
+        const streakEl = document.getElementById('streak');
+        if (todayTimeEl) todayTimeEl.textContent = '0m';
+        if (streakEl) streakEl.textContent = '0';
+
+        this.updateAnalysisMessage(progressPercent);
+    }
+
+    updateAnalysisMessage(progressPercent) {
+        const analysisMessage = document.getElementById('analysisMessage');
+        if (!analysisMessage) return;
+
+        let message = '';
+        let className = 'info';
+
+        if (progressPercent === 0) {
+            message = 'Comece seus estudos para receber análises personalizadas!';
+        } else if (progressPercent < 25) {
+            message = 'Você está começando sua jornada! Continue assim e estabeleça uma rotina consistente.';
+        } else if (progressPercent < 50) {
+            message = 'Bom progresso! Mantenha o ritmo e não se esqueça das revisões periódicas.';
+            className = 'good';
+        } else if (progressPercent < 75) {
+            message = 'Excelente trabalho! Você já passou da metade do cronograma. Foco na reta final!';
+            className = 'good';
+        } else {
+            message = 'Incrível! Você está na reta final. Revise os pontos fracos e mantenha a consistência.';
+            className = 'good';
+        }
+
+        analysisMessage.className = `analysis-message ${className}`;
+        analysisMessage.innerHTML = `<i class="fas fa-info-circle"></i><div>${message}</div>`;
+    }
+
+    showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `<i class="fas fa-check-circle"></i><span>${message}</span>`;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+
+    setupResponsiveFeatures() {
+        window.addEventListener('resize', () => this.handleResize());
+        this.handleResize();
+    }
+
+    handleResize() {
+        const width = window.innerWidth;
+        const weekSelector = document.getElementById('weekSelector');
+        const weekNavControls = document.querySelector('.week-nav-controls');
+
+        if (width < 480) {
+            if (weekNavControls) weekNavControls.style.display = 'flex';
+            if (weekSelector) weekSelector.style.display = 'none';
+        } else if (width < 768) {
+            if (weekNavControls) weekNavControls.style.display = 'flex';
+            if (weekSelector) weekSelector.style.display = 'flex';
+        } else {
+            if (weekNavControls) weekNavControls.style.display = 'none';
+            if (weekSelector) weekSelector.style.display = 'flex';
+        }
+    }
+
+    initEventListeners() {
+        const prevBtn = document.getElementById('prevWeekBtn');
+        const nextBtn = document.getElementById('nextWeekBtn');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => this.changeWeek(this.semanaAtual - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => this.changeWeek(this.semanaAtual + 1));
+    }
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    isValidUrl(string) {
+        try {
+            return string.startsWith('http://') || string.startsWith('https://');
+        } catch {
+            return false;
+        }
+    }
+}
+
+// ==========================================
+// POMODORO TIMER
+// ==========================================
+class PomodoroTimer {
+    constructor() {
+        this.studyTime = 25 * 60;
+        this.breakTime = 5 * 60;
+        this.currentTime = this.studyTime;
+        this.isRunning = false;
+        this.isStudyMode = true;
+        this.pomodoroCount = 0;
+        this.timerInterval = null;
+
+        this.initEventListeners();
+        this.updateDisplay();
+    }
+
+    initEventListeners() {
+        const startBtn = document.getElementById('startTimer');
+        const pauseBtn = document.getElementById('pauseTimer');
+        const resetBtn = document.getElementById('resetTimer');
+
+        if (startBtn) startBtn.addEventListener('click', () => this.start());
+        if (pauseBtn) pauseBtn.addEventListener('click', () => this.pause());
+        if (resetBtn) resetBtn.addEventListener('click', () => this.reset());
+    }
+
+    start() {
+        if (!this.isRunning) {
+            this.isRunning = true;
+            this.timerInterval = setInterval(() => this.tick(), 1000);
+        }
+    }
+
+    pause() {
+        if (this.isRunning) {
+            this.isRunning = false;
+            clearInterval(this.timerInterval);
+        }
+    }
+
+    reset() {
+        this.pause();
+        this.currentTime = this.isStudyMode ? this.studyTime : this.breakTime;
+        this.updateDisplay();
+    }
+
+    tick() {
+        this.currentTime--;
+
+        if (this.currentTime < 0) {
+            if (this.isStudyMode) {
+                this.isStudyMode = false;
+                this.currentTime = this.breakTime;
+                this.pomodoroCount++;
+                const pomodoroCountEl = document.getElementById('pomodoroCount');
+                if (pomodoroCountEl) pomodoroCountEl.textContent = this.pomodoroCount;
+                this.showNotification('Tempo de estudo acabou! Hora da pausa.');
+            } else {
+                this.isStudyMode = true;
+                this.currentTime = this.studyTime;
+                this.showNotification('Pausa acabou! Hora de voltar aos estudos.');
+            }
+        }
+
+        this.updateDisplay();
+    }
+
+    updateDisplay() {
+        const minutes = Math.floor(this.currentTime / 60);
+        const seconds = this.currentTime % 60;
+
+        const timerEl = document.getElementById('timer');
+        const timerModeEl = document.getElementById('timerMode');
+
+        if (timerEl) timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        if (timerModeEl) timerModeEl.textContent = this.isStudyMode ? 'Tempo de Estudo' : 'Tempo de Pausa';
+    }
+
+    showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.innerHTML = `<i class="fas fa-clock"></i><span>${message}</span>`;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
+}
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        window.cronogramaManager = new CronogramaManager();
+        window.pomodoroTimer = new PomodoroTimer();
+        console.log('✅ Cronograma inicializado com sucesso!');
+    } catch (error) {
+        console.error('❌ Erro ao inicializar cronograma:', error);
+    }
+});
+    </script>
+</body>
+</html>
