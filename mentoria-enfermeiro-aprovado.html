@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria Enfermeiro Aprovado | Transforme sua Carreira na Enfermagem</title>
+    <meta name="description" content="A mentoria mais completa para enfermeiros conquistarem aprovação em concursos e residências. Método comprovado com 8x mais aprovações que cursinhos tradicionais.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #063351;
+            --primary-gold: #C9A227;
+            --primary-gold-light: #E8D5A3;
+            --bg-cream: #FAF8F5;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+            --success: #10B981;
+            --gradient-gold: linear-gradient(135deg, #C9A227 0%, #E8D5A3 100%);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(6,51,81,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--primary-gold);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0a4a73;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(201,162,39,0.05) 100%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201,162,39,0.15);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--primary-gold);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-stat-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,162,39,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-stat-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        .hero-stat-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-image-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image-badge strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .hero-image-badge span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Social Proof Bar */
+        .social-proof-bar {
+            background: var(--primary-dark);
+            padding: 20px 0;
+            overflow: hidden;
+        }
+
+        .social-proof-content {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            color: white;
+        }
+
+        .social-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .social-proof-item strong {
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(201,162,39,0.15);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Para quem é */
+        .audience-section {
+            background: var(--bg-white);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .audience-card {
+            background: var(--bg-cream);
+            padding: 32px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .audience-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .audience-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--primary-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .problem-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .problem-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .problem-content h2 span {
+            color: var(--primary-gold);
+        }
+
+        .problem-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Ecosystem Section */
+        .ecosystem-section {
+            background: var(--bg-cream);
+        }
+
+        .ecosystem-phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .phase-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .phase-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .phase-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        .phase-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(201,162,39,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 2rem;
+        }
+
+        .phase-card h3 {
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .phase-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .phase-features {
+            margin-top: 24px;
+            text-align: left;
+        }
+
+        .phase-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .phase-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 20px;
+            padding: 32px;
+            background: var(--bg-cream);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-gold);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+
+        .benefit-content h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .benefit-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* NeuroAprovação Section */
+        .neuro-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0a4a73 100%);
+            color: white;
+        }
+
+        .neuro-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .neuro-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .neuro-content h2 span {
+            color: var(--primary-gold);
+        }
+
+        .neuro-content p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .neuro-modules {
+            display: grid;
+            gap: 16px;
+        }
+
+        .neuro-module {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255,255,255,0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .neuro-module:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+
+        .neuro-module-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .neuro-module span {
+            font-weight: 500;
+        }
+
+        .neuro-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Platform Section */
+        .platform-section {
+            background: var(--bg-cream);
+        }
+
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .platform-feature {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .platform-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .platform-feature h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .platform-feature p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-cream);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .testimonial-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            padding: 24px;
+        }
+
+        .testimonial-badge {
+            display: inline-block;
+            background: var(--gradient-gold);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .testimonial-content h3 {
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .testimonial-content .location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-content p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: var(--bg-cream);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .comparison-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            border-color: var(--primary-gold);
+        }
+
+        .comparison-card.featured {
+            border-color: var(--primary-gold);
+            position: relative;
+        }
+
+        .comparison-card.featured::before {
+            content: 'Mais Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-gold);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .comparison-card .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .comparison-features {
+            list-style: none;
+        }
+
+        .comparison-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+        }
+
+        .comparison-features li:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-features .check {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .pricing-section .section-title {
+            color: white;
+        }
+
+        .pricing-section .section-description {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary-gold);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Melhor Custo-Benefício';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-gold);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        .pricing-duration {
+            background: var(--bg-cream);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+        }
+
+        .pricing-price {
+            margin-bottom: 24px;
+        }
+
+        .pricing-price .currency {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            vertical-align: top;
+        }
+
+        .pricing-price .amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .pricing-price .period {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-gold);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 24px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #0a4a73 100%);
+            padding: 100px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201,162,39,0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201,162,39,0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-size: 2.75rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-guarantees {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .cta-guarantee {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .cta-guarantee-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--bg-cream);
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary-dark);
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner,
+            .problem-inner,
+            .neuro-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .ecosystem-phases,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid,
+            .comparison-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .social-proof-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platform-features {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-guarantees {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">EA</span>
+                Enfermeiro Aprovado
+            </a>
+            <nav class="nav">
+                <a href="#metodologia">Metodologia</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#planos">Planos</a>
+                <a href="#faq">FAQ</a>
+                <a href="#entrar" class="btn btn-primary">⚡ Começar</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-badge">MENTORIA & CRONOGRAMA</span>
+                    <h1>Transforme sua carreira na enfermagem com <span>método e estratégia</span></h1>
+                    <p class="hero-description">
+                        Com o Cronograma e a Mentoria do Enfermeiro Aprovado, você estuda com direção, constância e suporte humano para alcançar sua aprovação em concursos e residências — com foco em resultado, não em quantidade de conteúdo.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#planos" class="btn btn-gold">🚀 Conhecer Programas</a>
+                        <a href="#mentoras" class="btn btn-secondary">👩‍⚕️ Ver quem vai te guiar</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">🏆</div>
+                            <div class="hero-stat-text">
+                                <strong>+500</strong>
+                                <span>mentorados pelo Brasil</span>
+                            </div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-icon">📈</div>
+                            <div class="hero-stat-text">
+                                <strong>8x maior</strong>
+                                <span>taxa de aprovação</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2025/11/enf-300-scaled.avif" alt="Mentoras Enfermeiro Aprovado">
+                    <div class="hero-image-badge">
+                        <strong>90 dias</strong>
+                        <span>Método comprovado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <div class="social-proof-bar">
+        <div class="container">
+            <div class="social-proof-content">
+                <div class="social-proof-item">
+                    <strong>✓</strong> Matrículas Abertas
+                </div>
+                <div class="social-proof-item">
+                    <strong>✓</strong> Vagas Limitadas
+                </div>
+                <div class="social-proof-item">
+                    <strong>✓</strong> Garantia de 10 dias
+                </div>
+                <div class="social-proof-item">
+                    <strong>✓</strong> Suporte WhatsApp
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Para quem é -->
+    <section class="section audience-section" id="para-quem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Para quem é</span>
+                <h2 class="section-title">A mentoria certa para você</h2>
+                <p class="section-description">
+                    Se você se identifica com algum desses perfis, a Mentoria Enfermeiro Aprovado foi feita para transformar sua jornada.
+                </p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🎯</div>
+                    <h3>Concurseiros Determinados</h3>
+                    <p>Enfermeiros que desejam conquistar sua aprovação em qualquer concurso ou residência do país ainda em 2025/2026.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">💪</div>
+                    <h3>Superação e Persistência</h3>
+                    <p>Enfermeiros que já reprovaram várias vezes e não sabem onde estão errando na preparação.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🚀</div>
+                    <h3>Início Estratégico</h3>
+                    <p>Enfermeiros e estudantes que desejam iniciar seus estudos para Concursos e/ou Residência com o pé direito.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">⏰</div>
+                    <h3>Estudo Eficiente</h3>
+                    <p>Enfermeiros com pouco tempo disponível para estudar, que precisam de um método objetivo e prático.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">📈</div>
+                    <h3>Carreira em Ascensão</h3>
+                    <p>Enfermeiros recém-graduados que desejam ganhar mais de R$4.000 enquanto se especializam na residência.</p>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🏛️</div>
+                    <h3>Estabilidade Almejada</h3>
+                    <p>Enfermeiros experientes que estão cansados da iniciativa privada e querem conquistar estabilidade em concurso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problem-section">
+        <div class="container">
+            <div class="problem-inner">
+                <div class="problem-content">
+                    <h2>Não te falta conhecimento, <span>te falta metodologia!</span></h2>
+                    <p>
+                        Se você está estudando há algum tempo, percebeu como a grande maioria dos concurseiros sofre com o inchaço de conhecimento e informações, tendo pouca assertividade nas provas.
+                    </p>
+                    <p>
+                        Isso porque não basta estudar, é preciso saber estudar da forma correta. Com mais de 10 anos de experiência em cursinhos preparatórios, nós sabemos o padrão de um Enfermeiro Aprovado.
+                    </p>
+                    <p>
+                        <strong>A boa notícia:</strong> Você não precisa mais patinar e andar em círculos. Com a Mentoria Enfermeiro Aprovado você terá o passo a passo para conseguir sua aprovação!
+                    </p>
+                    <a href="#planos" class="btn btn-gold">Quero minha vaga na Mentoria</a>
+                </div>
+                <div class="problem-image">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2025/11/Screenshot_20.avif" alt="Método Enfermeiro Aprovado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="section ecosystem-section" id="metodologia">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Ecossistema</span>
+                <h2 class="section-title">Conheça as 3 fases da sua aprovação</h2>
+                <p class="section-description">
+                    Exatamente o que você precisa para estudar da maneira correta e se tornar um Enfermeiro Concursado.
+                </p>
+            </div>
+            <div class="ecosystem-phases">
+                <div class="phase-card">
+                    <span class="phase-number">1</span>
+                    <div class="phase-icon">🎯</div>
+                    <h3>Start nos Estudos</h3>
+                    <p>Avaliação de rotina, conhecimento prévio sobre técnicas de estudo e construção de base sólida com neuroaprendizagem.</p>
+                    <ul class="phase-features">
+                        <li>Diagnóstico inicial completo</li>
+                        <li>Trilha 100% personalizada</li>
+                        <li>Curso NeuroAprovação</li>
+                        <li>Definição de metas claras</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-number">2</span>
+                    <div class="phase-icon">📊</div>
+                    <h3>Acompanhamento</h3>
+                    <p>Tutoria semanal com correção de rota, encontros ao vivo e suporte contínuo para manter sua evolução.</p>
+                    <ul class="phase-features">
+                        <li>4+ encontros ao vivo/mês</li>
+                        <li>Relatórios de desempenho</li>
+                        <li>Suporte WhatsApp</li>
+                        <li>Correção de rota semanal</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <span class="phase-number">3</span>
+                    <div class="phase-icon">🏆</div>
+                    <h3>Intensivo Pré-Prova</h3>
+                    <p>Revisões inteligentes, simulados focados na sua banca e preparação mental para o dia da prova.</p>
+                    <ul class="phase-features">
+                        <li>Revisões ciclo e flash</li>
+                        <li>Simulados por banca</li>
+                        <li>Foco nos temas quentes</li>
+                        <li>Preparação estratégica</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Benefícios</span>
+                <h2 class="section-title">Os pilares da sua aprovação</h2>
+                <p class="section-description">
+                    Direção, acompanhamento e foco no que cai — com ritmo e consistência.
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🗺️</div>
+                    <div class="benefit-content">
+                        <h3>Plano com Direção</h3>
+                        <p>Você para de "estudar no escuro" e começa com uma trilha objetiva, ajustável e sem desperdício de tempo.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <div class="benefit-content">
+                        <h3>Acompanhamento Real</h3>
+                        <p>Encontros ao vivo, suporte e correção de rota para você não travar no meio do caminho.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔥</div>
+                    <div class="benefit-content">
+                        <h3>Foco no que Cai</h3>
+                        <p>Temas quentes, estudo reverso e questões para você estudar o que mais aparece em prova.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <div class="benefit-content">
+                        <h3>Neuroaprovação</h3>
+                        <p>Técnicas validadas de memorização, revisão e prova para acelerar fixação sem aumentar carga.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎮</div>
+                    <div class="benefit-content">
+                        <h3>Gamificação</h3>
+                        <p>Missões, ranking e premiação: constância vira rotina (e rotina vira aprovação).</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💬</div>
+                    <div class="benefit-content">
+                        <h3>Suporte de Verdade</h3>
+                        <p>WhatsApp com mentoras e canal direto, com resposta estratégica para suas dúvidas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NeuroAprovação Section -->
+    <section class="section neuro-section">
+        <div class="container">
+            <div class="neuro-inner">
+                <div class="neuro-content">
+                    <span class="section-badge" style="background: rgba(255,255,255,0.1);">Bônus Exclusivo</span>
+                    <h2>Curso <span>NeuroAprovação</span></h2>
+                    <p>
+                        Domine seu método com neuroaprendizagem. Aulas práticas em 3 módulos para você aprender como o cérebro retém conteúdo, com técnicas de memorização para aplicar o método Enfermeiro Aprovado.
+                    </p>
+                    <div class="neuro-modules">
+                        <div class="neuro-module">
+                            <div class="neuro-module-icon">🧬</div>
+                            <span>Fundamentos da Neurociência do Aprendizado</span>
+                        </div>
+                        <div class="neuro-module">
+                            <div class="neuro-module-icon">📚</div>
+                            <span>Estratégias de Estudo Personalizadas</span>
+                        </div>
+                        <div class="neuro-module">
+                            <div class="neuro-module-icon">💡</div>
+                            <span>Potencializando a Memória</span>
+                        </div>
+                        <div class="neuro-module">
+                            <div class="neuro-module-icon">🎯</div>
+                            <span>Focando na Concentração</span>
+                        </div>
+                        <div class="neuro-module">
+                            <div class="neuro-module-icon">⏱️</div>
+                            <span>Organização e Gestão do Tempo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="neuro-image">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2025/05/enf-318-scaled.jpg" alt="Curso NeuroAprovação">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section class="section platform-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Plataforma</span>
+                <h2 class="section-title">Tudo que você precisa em um só lugar</h2>
+                <p class="section-description">
+                    Plataforma exclusiva com IA que personaliza seu estudo e acompanha seu progresso.
+                </p>
+            </div>
+            <div class="platform-features">
+                <div class="platform-feature">
+                    <div class="platform-feature-icon">📅</div>
+                    <h3>Agenda Inteligente</h3>
+                    <p>Agenda de estudos com base na sua rotina, reorganizada automaticamente.</p>
+                </div>
+                <div class="platform-feature">
+                    <div class="platform-feature-icon">📊</div>
+                    <h3>Relatórios Semanais</h3>
+                    <p>Gráficos e porcentagem de acertos por matéria enviados no seu e-mail.</p>
+                </div>
+                <div class="platform-feature">
+                    <div class="platform-feature-icon">📝</div>
+                    <h3>+4mil Questões</h3>
+                    <p>Banco completo com questões comentadas por banca e tema.</p>
+                </div>
+                <div class="platform-feature">
+                    <div class="platform-feature-icon">🎥</div>
+                    <h3>Aulas e PDFs</h3>
+                    <p>Material completo para cada conteúdo do seu edital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="mentoras">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-16-scaled.jpg" alt="Enfermeiro Aprovado">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-116-scaled.jpg" alt="Enfermeiro Aprovado">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-146-scaled.jpg" alt="Enfermeiro Aprovado">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-128-scaled.jpg" alt="Enfermeiro Aprovado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Depoimentos</span>
+                <h2 class="section-title">Histórias de Sucesso</h2>
+                <p class="section-description">
+                    Conheça quem já conquistou a aprovação com nossa metodologia. Resultados reais com acompanhamento de perto.
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-208-scaled.jpg" alt="Cristiane Teixeira" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <span class="testimonial-badge">1º Lugar</span>
+                        <h3>Cristiane Teixeira</h3>
+                        <p class="location">Alto Garças - MT</p>
+                        <p>"Em 3 meses organizei meus estudos e fui chamada no concurso municipal. O acompanhamento semanal faz toda diferença!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-195-scaled.jpg" alt="Manuela Corral" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <span class="testimonial-badge">Aprovada</span>
+                        <h3>Manuela Corral</h3>
+                        <p class="location">Pedro Osório - RS</p>
+                        <p>"A trilha personalizada focou no que mais cai da minha banca. Ganhei tempo e confiança para a prova."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://enfermeiroaprovado.com.br/wp-content/uploads/2026/01/enf-340-scaled.jpg" alt="Raquel Ferreira" class="testimonial-image">
+                    <div class="testimonial-content">
+                        <span class="testimonial-badge">1º Lugar</span>
+                        <h3>Raquel Ferreira</h3>
+                        <p class="location">Fiscal VISA - Betim/MG</p>
+                        <p>"As revisões inteligentes e os encontros curtos mantêm o ritmo. Senti evolução toda semana."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Formatos</span>
+                <h2 class="section-title">Mentoria em Grupo vs Individual</h2>
+                <p class="section-description">
+                    Escolha o formato que melhor se adapta às suas necessidades.
+                </p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Mentoria em Grupo</h3>
+                    <p class="subtitle">Estrutura + ritmo + suporte</p>
+                    <ul class="comparison-features">
+                        <li><span class="check">✓</span> Acesso à plataforma com material incluso</li>
+                        <li><span class="check">✓</span> Plano de estudos conforme edital</li>
+                        <li><span class="check">✓</span> 4 encontros ao vivo por mês (mínimo)</li>
+                        <li><span class="check">✓</span> Grupo de WhatsApp com mentoras</li>
+                        <li><span class="check">✓</span> Gamificação com premiação</li>
+                        <li><span class="check">✓</span> Curso NeuroAprovação completo</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                        <strong>Ideal para:</strong> quem quer avançar com acompanhamento, comunidade e encontros ao vivo, com trilha e suporte para manter constância.
+                    </p>
+                </div>
+                <div class="comparison-card featured">
+                    <h3>Mentoria Individual</h3>
+                    <p class="subtitle">Tudo do grupo + ajuste fino semanal</p>
+                    <ul class="comparison-features">
+                        <li><span class="check">✓</span> Tudo da mentoria em grupo</li>
+                        <li><span class="check">✓</span> Avaliação individual de desempenho</li>
+                        <li><span class="check">✓</span> Contato direto WhatsApp das mentoras</li>
+                        <li><span class="check">✓</span> Reunião individual a cada 20 dias</li>
+                        <li><span class="check">✓</span> Acompanhamento em planilha pessoal</li>
+                        <li><span class="check">✓</span> Correção de rota semanal personalizada</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">
+                        <strong>Ideal para:</strong> quem precisa de personalização real (plantões, lacunas específicas, prova próxima, meta agressiva).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="planos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" style="background: rgba(255,255,255,0.1);">Investimento</span>
+                <h2 class="section-title">Escolha seu caminho para a aprovação</h2>
+                <p class="section-description">
+                    Planos para diferentes momentos — comece hoje e ajuste quando precisar.
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <span class="pricing-duration">3 MESES</span>
+                    <h3>Mentoria em Grupo</h3>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">697</span>
+                        <span class="period">pagamento único ou até 12x</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Plano de estudo personalizado</li>
+                        <li>Acesso à plataforma completa</li>
+                        <li>Revisões inteligentes</li>
+                        <li>4+ encontros ao vivo/mês</li>
+                        <li>Curso NeuroAprovação</li>
+                        <li>Suporte por WhatsApp (grupo)</li>
+                    </ul>
+                    <a href="#entrar" class="btn btn-secondary">Quero 3 meses</a>
+                </div>
+                <div class="pricing-card featured">
+                    <span class="pricing-duration">6 MESES</span>
+                    <h3>Mentoria em Grupo</h3>
+                    <div class="pricing-price">
+                        <span class="currency">R$</span>
+                        <span class="amount">997</span>
+                        <span class="period">pagamento único ou até 12x</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Tudo do plano de 3 meses</li>
+                        <li>Dobro do tempo de acesso</li>
+                        <li>Maior economia por mês</li>
+                        <li>Acompanhamento completo</li>
+                        <li>Simulados ilimitados</li>
+                        <li>Bônus exclusivos</li>
+                    </ul>
+                    <a href="#entrar" class="btn btn-gold">Quero 6 meses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Dúvidas</span>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>A mentoria serve para qualquer concurso de enfermagem?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! A Mentoria Enfermeiro Aprovado é completa para concursos federais, estaduais, municipais, EBSERH, tribunais, vigilância sanitária e também para residências (ENARE e hospitalares). Temos material e plano de estudos personalizados para cada edital.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo preciso estudar por dia?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O plano é personalizado para sua rotina. Temos alunos que estudam 1-2 horas por dia e conseguem excelentes resultados com nosso método. O importante é a constância e a qualidade do estudo, não a quantidade de horas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Tenho garantia se não gostar?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Você tem 10 dias de garantia incondicional. Se dentro desse período você sentir que a mentoria não é para você, devolvemos 100% do seu investimento, sem perguntas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funcionam os encontros ao vivo?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Os encontros acontecem pelo menos 4 vezes por mês, online, com as mentoras Layze e Deborah. São momentos para tirar dúvidas, corrigir simulados, ajustar o plano de estudos e manter sua motivação em alta. Todos os encontros ficam gravados.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso fazer upgrade para a mentoria individual?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Você pode começar na mentoria em grupo e fazer upgrade para a individual a qualquer momento, pagando apenas a diferença proporcional ao tempo restante.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O acesso à plataforma é imediato?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Assim que o pagamento for confirmado, você recebe automaticamente os dados de acesso à plataforma e já pode começar a estudar. Também é adicionado imediatamente ao grupo de WhatsApp da turma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="entrar">
+        <div class="container">
+            <h2>Sua aprovação está a um passo</h2>
+            <p>
+                Junte-se a mais de 500 enfermeiros que já transformaram suas carreiras com o método Enfermeiro Aprovado.
+            </p>
+            <div class="cta-buttons">
+                <a href="#planos" class="btn btn-gold">🚀 Garantir minha vaga agora</a>
+                <a href="https://wa.me/5500000000000" class="btn btn-secondary" style="border-color: white; color: white;">💬 Falar com a equipe</a>
+            </div>
+            <div class="cta-guarantees">
+                <div class="cta-guarantee">
+                    <div class="cta-guarantee-icon">🔒</div>
+                    <span>Pagamento 100% seguro</span>
+                </div>
+                <div class="cta-guarantee">
+                    <div class="cta-guarantee-icon">✓</div>
+                    <span>Garantia de 10 dias</span>
+                </div>
+                <div class="cta-guarantee">
+                    <div class="cta-guarantee-icon">💳</div>
+                    <span>Parcele em até 12x</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">EA</span>
+                        Enfermeiro Aprovado
+                    </a>
+                    <p>
+                        A mentoria mais completa para enfermeiros conquistarem aprovação em concursos e residências do Brasil.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#metodologia">Metodologia</a></li>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Enfermeiro Aprovado. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
