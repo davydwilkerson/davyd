@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>COFEN 2026 | Lista Oficial + Plano de Estudo - Enfermeiro Aprovado</title>
+  <meta name="description" content="Entre na Lista Oficial COFEN 2026 e receba plano de estudo, alertas de edital, materiais e convites para estudar com a comunidade do Enfermeiro Aprovado." />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #f6fafc;
+      --bg-alt: #edf3f7;
+      --card: #ffffff;
+      --accent: #063351;
+      --accent-2: #0a5580;
+      --muted: #51666e;
+      --gold: #bfa06f;
+      --gold-2: #d4b98a;
+      --border-subtle: rgba(9, 31, 47, 0.06);
+
+      --glass: rgba(255,255,255,0.72);
+      --radius-sm: 10px;
+      --radius: 16px;
+      --radius-lg: 24px;
+
+      --shadow-sm: 0 6px 18px rgba(11,21,33,0.06);
+      --shadow-md: 0 18px 46px rgba(11,21,33,0.10);
+
+      --transition: 260ms cubic-bezier(.2,.9,.2,1);
+      --container: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(191,160,111,0.09), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(10,85,128,0.08), transparent 55%),
+        linear-gradient(180deg, #fbfdfe 0%, #f3f8fb 100%);
+      color: #0f2830;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    .page-shell { min-height: 100vh; padding: 16px 0 40px; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+
+    header { position: sticky; top: 10px; z-index: 1200; margin-bottom: 20px; }
+    .header-surface {
+      backdrop-filter: blur(14px);
+      background: linear-gradient(120deg, rgba(255,255,255,0.90), rgba(246,251,252,0.85));
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
+    }
+    body.header-scrolled .header-surface {
+      box-shadow: 0 12px 32px rgba(9, 31, 47, 0.18);
+      transform: translateY(2px);
+      background: linear-gradient(120deg, rgba(255,255,255,0.96), rgba(249,252,253,0.92));
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 18px; gap: 16px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo span { color: var(--gold); }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 10%, #fff 0, #ffecc8 40%, #d4b98a 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--accent);
+      box-shadow: 0 8px 18px rgba(191,160,111,0.26);
+      flex-shrink: 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 48px;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 4% -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(10,85,128,0.08), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(191,160,111,0.12), transparent 60%);
+      opacity: 0.5;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(120deg, rgba(10,85,128,0.95), rgba(6,51,81,0.95));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 10px 30px rgba(6,51,81,0.22);
+      margin-bottom: 16px;
+    }
+    .badge i { color: var(--gold-2); }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 2.5vw + 1.6rem, 3.2rem);
+      color: var(--accent);
+      line-height: 1.08;
+      margin: 4px 0 14px;
+      letter-spacing: 0.01em;
+    }
+    .hero h1 .highlight {
+      color: var(--gold);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 22px;
+      max-width: 58ch;
+      font-weight: 500;
+    }
+
+    .hero-info {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #fff, #f7fafc);
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+    .info-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(120deg, var(--gold), var(--gold-2));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .info-text { display: flex; flex-direction: column; gap: 2px; }
+    .info-text strong { color: var(--accent); font-size: 0.95rem; font-weight: 700; }
+    .info-text span { color: var(--muted); font-size: 0.8rem; }
+
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 18px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .benefits-list i {
+      color: var(--gold);
+      margin-top: 4px;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .form-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(246,250,252,0.98));
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.9);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      background:
+        radial-gradient(circle at 0 0, rgba(191,160,111,0.16), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(10,85,128,0.16), transparent 55%);
+      opacity: 0.45;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .form-header { text-align: center; margin-bottom: 18px; }
+    .form-header h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+    .form-header p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; color: var(--accent);
+      font-weight: 600; margin-bottom: 8px; font-size: 0.9rem;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(6,51,81,0.15);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      background: white;
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(191,160,111,0.15);
+    }
+    .form-group input::placeholder { color: #a0aec0; }
+
+    .microcopy {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin: 8px 0 0;
+      text-align: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(125deg, var(--gold), var(--gold-2));
+      color: var(--accent);
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 14px 32px rgba(191,160,111,0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(191,160,111,0.35); }
+    .submit-btn:active { transform: translateY(-1px); }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    .form-footer i { color: var(--gold); margin-right: 4px; }
+
+    .success-message {
+      display: none;
+      background: linear-gradient(120deg, #10b981, #059669);
+      color: white;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-weight: 600;
+      margin-top: 14px;
+      box-shadow: 0 10px 30px rgba(16,185,129,0.3);
+    }
+    .success-message.show { display: block; animation: slideIn 0.4s ease-out; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section { padding: 70px 0; }
+    .section-title { text-align: center; margin-bottom: 40px; }
+    .section-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      font-size: clamp(1.7rem, 1.1vw + 1.4rem, 2.1rem);
+      margin-bottom: 8px;
+    }
+    .section-title p { color: var(--muted); max-width: 780px; margin: 0 auto; font-size: 0.98rem; }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .topic-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,252,253,0.98));
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255,255,255,0.9);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .topic-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .topic-icon {
+      width: 54px; height: 54px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, rgba(191,160,111,0.13), rgba(191,160,111,0.04));
+      color: var(--gold);
+      font-size: 1.4rem;
+      box-shadow: 0 10px 24px rgba(191,160,111,0.28);
+      margin-bottom: 16px;
+    }
+    .topic-card h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 8px; }
+    .topic-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; margin: 0; }
+
+    .cta-section { padding-bottom: 70px; }
+    .cta {
+      background: linear-gradient(120deg,var(--accent),var(--accent-2));
+      color: #fff;
+      padding: 40px 26px 34px;
+      border-radius: var(--radius-lg);
+      text-align: center;
+      box-shadow: 0 22px 60px rgba(6,51,81,0.30);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(191,160,111,0.23), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255,255,255,0.18), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; margin-bottom: 8px; }
+    .cta p { opacity: 0.96; color: rgba(255,255,255,0.96); margin-bottom: 18px; font-size: 0.98rem; }
+
+    footer { margin-top: 12px; padding: 30px 0 16px; }
+    .footer-surface {
+      background: linear-gradient(120deg,var(--accent),var(--accent-2));
+      border-radius: var(--radius-lg);
+      padding: 26px 18px 18px;
+      color: #fff;
+      box-shadow: 0 22px 60px rgba(6,51,81,0.32);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .footer-surface::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(191,160,111,0.22), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(255,255,255,0.16), transparent 60%);
+      opacity: 0.9;
+      mix-blend-mode: soft-light;
+    }
+    .footer-inner { position: relative; z-index: 1; }
+    .footer-text { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin: 0; }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: minmax(0,1fr); gap: 32px; }
+    }
+    @media (max-width: 820px) {
+      .header-surface { border-radius: 18px; }
+      .hero { padding-top: 40px; }
+    }
+    @media (max-width: 520px) {
+      .header-inner { padding: 10px 14px; }
+      .logo { font-size: 1.35rem; }
+      .logo-mark { width: 30px; height: 30px; font-size: 0.75rem; }
+      .hero { padding-top: 32px; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .form-card { padding: 24px 20px; }
+      .section { padding: 52px 0; }
+      .hero-info { flex-direction: column; gap: 12px; }
+      .info-item { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-shell">
+
+  <!-- Header -->
+  <header role="banner" aria-label="Cabeçalho do site">
+    <div class="container">
+      <div class="header-surface">
+        <div class="header-inner">
+          <a class="logo" href="https://enfermeiroaprovado.com.br">
+            <div class="logo-mark">EA</div>
+            Enfermeiro<span>Aprovado</span>
+          </a>
+          <a href="#form" style="font-weight:700;color:var(--accent);opacity:.9">Entrar na Lista</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="badge">
+          <i class="fas fa-users"></i>
+          Comunidade COFEN 2026
+        </div>
+
+        <h1 id="hero-title">
+          Entre na <span class="highlight">Lista Oficial COFEN 2026</span><br>
+          e estude com a gente, do zero ao edital
+        </h1>
+
+        <p class="hero-subtitle">
+          Cadastre-se para receber <strong>plano de estudo</strong>, <strong>alertas oficiais</strong>, materiais essenciais e convites para estudar em grupo com o Enfermeiro Aprovado.
+          Você não precisa caminhar sozinho(a).
+        </p>
+
+        <div class="hero-info">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-bell"></i></div>
+            <div class="info-text">
+              <strong>Alertas do concurso</strong>
+              <span>Edital, banca, datas e novidades</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-route"></i></div>
+            <div class="info-text">
+              <strong>Plano de estudo</strong>
+              <span>Direção clara + prioridade</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-file-pdf"></i></div>
+            <div class="info-text">
+              <strong>Materiais guiados</strong>
+              <span>Resoluções e legislação</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="benefits-list">
+          <li><i class="fas fa-check-circle"></i><span><strong>Lista VIP COFEN 2026</strong> (email + WhatsApp)</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Roteiro semanal</strong> para você não ficar perdido(a)</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Mapa das resoluções</strong> + como estudar “ótica de fiscalização”</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>Convites</strong> para aulas e eventos gratuitos</span></li>
+        </ul>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card" id="form">
+        <div class="form-header">
+          <h3>Entrar na Lista Oficial</h3>
+          <p>Receba o plano e os avisos do COFEN 2026</p>
+        </div>
+
+        <!-- Mailchimp -->
+        <form action="https://enfermeiroaprovado.us13.list-manage.com/subscribe/post?u=776feb0c8ee7d0f69d5989cc4&id=592f8d98c6&f_id=00b1d7ecf0"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              class="validate"
+              target="hidden_iframe"
+              novalidate>
+
+          <div class="form-group">
+            <label for="mce-FNAME">Nome *</label>
+            <input type="text" value="" name="FNAME" class="required" id="mce-FNAME" required placeholder="Seu nome">
+          </div>
+
+          <div class="form-group">
+            <label for="mce-EMAIL">Email *</label>
+            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required placeholder="seu@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="mce-PHONE">WhatsApp *</label>
+            <input type="tel" value="" name="PHONE" class="required" id="mce-PHONE" required placeholder="(00) 00000-0000">
+          </div>
+
+          <div class="form-group">
+            <label for="mce-PROFILE">Você vai focar em qual caminho?</label>
+            <select name="PROFILE" id="mce-PROFILE">
+              <option value="" selected>Selecione (opcional)</option>
+              <option value="Fiscal">Fiscal COFEN/COREN</option>
+              <option value="Enfermeiro">Enfermeiro (geral)</option>
+              <option value="Ainda_nao_sei">Ainda não sei</option>
+            </select>
+          </div>
+
+          <!-- Tags para segmentação -->
+          <div hidden="">
+            <input type="hidden" name="tags" value="COFEN2026,ListaCOFEN2026">
+          </div>
+
+          <!-- Anti-bot -->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_776feb0c8ee7d0f69d5989cc4_592f8d98c6" tabindex="-1" value="">
+          </div>
+
+          <button type="submit" class="submit-btn" name="subscribe" id="mc-embedded-subscribe">
+            <i class="fas fa-rocket"></i>
+            Quero Estudar com Vocês
+          </button>
+
+          <p class="microcopy">
+            Ao entrar na lista, você concorda em receber comunicações do Enfermeiro Aprovado (pode sair quando quiser).
+          </p>
+
+          <div class="form-footer">
+            <i class="fas fa-lock"></i>
+            Seus dados estão 100% seguros e protegidos
+          </div>
+
+          <div class="success-message" id="success-message">
+            <i class="fas fa-check-circle"></i> Cadastro realizado! Verifique seu email/WhatsApp.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section container" aria-labelledby="how-title">
+      <div class="section-title">
+        <p class="section-eyebrow">Como funciona</p>
+        <h2 id="how-title">O que você recebe ao entrar na lista</h2>
+        <p>Você entra, recebe o plano e passa a ser avisado(a) de cada passo do COFEN 2026 — sem depender de “achismo” e sem estudar no escuro.</p>
+      </div>
+
+      <div class="topics-grid">
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-map-signs"></i></div>
+          <h3>Direção de estudo</h3>
+          <p>Roteiro com prioridades: o que estudar primeiro, como revisar e como atacar questões com estratégia.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-gavel"></i></div>
+          <h3>Legislação e Resoluções</h3>
+          <p>Materiais guiados para dominar os pontos que mais caem em COFEN/COREN (assistência x fiscalização).</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Aulas e encontros gratuitos</h3>
+          <p>Convites para aulas, revisões e eventos. Você fica por dentro antes do público geral.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-users"></i></div>
+          <h3>Estudo “com gente”</h3>
+          <p>Chamados para estudar junto e não abandonar no meio. Consistência vence “motivação”.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-bell"></i></div>
+          <h3>Alertas importantes</h3>
+          <p>Edital, banca, datas, etapas: quando algo sair, você recebe. Simples assim.</p>
+        </div>
+
+        <div class="topic-card">
+          <div class="topic-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Checklist do aprovado</h3>
+          <p>Checklist para acompanhar evolução, evitar erros comuns e manter o ritmo até a prova.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="container cta-section">
+      <div class="cta" role="region" aria-label="Call to Action">
+        <div class="cta-inner">
+          <h2>Quer estudar COFEN 2026 com direção e constância?</h2>
+          <p>Entre na lista oficial agora e receba o plano de estudo + alertas do concurso.</p>
+          <a href="#form" class="submit-btn" style="display:inline-flex;width:auto;padding:14px 32px;">
+            <i class="fas fa-arrow-up"></i>
+            Entrar na Lista Oficial
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-surface">
+        <div class="footer-inner">
+          <p class="footer-text">© 2025 Enfermeiro Aprovado — Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- iFrame oculto para capturar resposta do Mailchimp -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+  onload="if(window._eaSubmitted){window.location='https://enfermeiroaprovado.com.br/desafio-obrigado/';}">
+</iframe>
+
+<script>
+  window._eaSubmitted = false;
+
+  // Header shadow on scroll
+  (function() {
+    const onScroll = () => {
+      if (window.scrollY > 24) document.body.classList.add('header-scrolled');
+      else document.body.classList.remove('header-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+  })();
+
+  // Form submission handler
+  document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function() {
+    window._eaSubmitted = true;
+    setTimeout(function() {
+      const el = document.getElementById('success-message');
+      if (el) el.classList.add('show');
+    }, 500);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
